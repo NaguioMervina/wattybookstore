@@ -1,0 +1,382 @@
+*{
+	box-sizing:border-box;
+  }
+ body{
+	margin:0;
+	padding:0;
+ }
+ /* Home page */
+ h2{
+	color:white;
+	text-shadow:2px 2px 5px gray;
+	font-size:20px;
+	text-align:center;
+ }	 
+ nav{
+		background-color: #59788E;
+		padding:12px;
+		text-align:left;
+	}
+ .image-container{
+  background-image: url("background.jpg");
+  background-size:100% 100%;
+  position: relative;
+  width:100%;
+  height:250px;
+}
+.text-block {
+	border-radius:15px;
+	border: 2px solid #59788E;
+	background-color: white;
+	color: black;
+	font-size: 4vw; 
+	font-weight: bold;
+	margin: 0 auto;
+	padding: 10px;
+	width: 50%;
+	text-align: center;
+	text-shadow:2px 2px 4px #000000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity:.9;
+  
+}
+span{
+	color:white;
+	font-size:2vw;
+	cursor:pointer;
+	margin:10px;
+	text-shadow:2px 2px 4px #000000;
+}
+span:hover{
+	color:black;
+}
+
+ .container{
+	margin:auto;
+	overflow:auto;
+	padding:0px;
+ }
+
+ .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #59788E;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  
+}
+
+.sidenav a:hover {
+  color: black;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+footer{
+	text-align:center;
+	background-color: #b664d1;
+	color:Black;
+	padding:20px;
+	height:auto;
+}
+.fa 		{
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+ table
+    {	  
+		  width:100%;
+		  height:100%;
+    }
+	.column {
+		float: left;
+		padding:10px;		
+	}
+	.left, .right{
+		width:20%;
+		height:100%;
+		
+	}
+	.left{
+		background-color:#59788E;
+	}
+	.right{
+		background-color:#59788E;
+	}
+	
+	.middle{
+		width:40%;
+	}
+	figure{
+		margin:auto;
+		border:1px;
+	}
+	.row:after {
+		content:"";
+		display:table;
+		clear:both;
+		width:100
+	}
+
+@media screen and (max-height: 400px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.first-sec{
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	font-family:"Lucida Handwriting";
+	font-size:3vw;
+	padding:50px;
+	text-shadow:2px 2px 2px #000000;
+}
+.img1{
+	box-shadow: 10px 10px 5px black;
+	width: 60%;
+	height: auto;
+}
+.p1{
+	margin:0;
+	padding:15px;
+	
+}
+
+.second-sec{
+	font-family:"Lucida Handwriting";
+	font-size:2vw;
+	color:white;
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	background-color:#59788E;
+	padding:30px;
+	text-shadow:2px 2px 2px #000000;
+}
+.img2{
+	box-shadow: 10px 10px 5px black;
+	height: auto;
+	width:25%;
+	margin-right:30px;
+}
+.img3{
+	box-shadow: 10px 10px 5px black;
+	height: auto;
+	width:23%;
+	margin:0px;
+}
+.second-sec .quotes{
+	float:right;
+	width:30%;
+	padding:10px;
+	margin-right:60px;
+}
+.p2{
+	margin:0;
+	padding:15px;
+}
+
+
+.third-sec{
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	font-family:"Lucida Handwriting";
+	font-size:2.4vw;
+	padding:50px;
+	text-shadow:2px 2px 2px #000000;
+}
+.img4{
+	box-shadow: 10px 10px 5px black;
+	height: auto;
+	width:28%;
+	margin-right:30px;
+}
+.img5{
+	box-shadow: 10px 10px 5px black;
+	height: auto;
+	width:23%;
+	margin:0px;
+}
+.third-sec .quotes2{
+	float:left;
+	width:30%;
+	padding:10px;
+	margin-right:60px;
+}
+.p3{
+	margin:0;
+	padding:15px;
+}
+
+/* about page */
+.about-sec{
+	padding: 50px;
+	text-align: center;
+	background-color: white;
+	color: black;
+}	
+.h1A{
+	font-size:3vw;
+	margin-bottom:15px;
+}
+.p4{
+	padding:20px;
+	font-size:2vw;
+	
+}
+/* Gallery Page */
+.btn{
+	height:auto;
+	width:20%;
+	font-size:1.5vw;
+	margin:20px;
+	border-radius:12px;
+	box-shadow:2px 2px 2px #000000;
+	font-family:"Times New Roman"
+
+}
+
+.gal-sec{
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	padding-top:0;
+	padding-bottom:50px;
+	border-bottom:2px solid #ccc;
+}
+.galh1{
+	font-size:4vw;
+	text-shadow:1px 1px 1px #000000;
+	margin-bottom:90px;
+}
+ .title{
+	padding:20px;
+	font-size:3vw;
+	text-shadow:2px 2px 2px #000000;
+ }
+ .desc{
+	font-size:2vw;
+	margin-top:0;
+	margin-bottom:60px;
+	text-align:justify;
+	margin-left:20%;
+	margin-right:20%;
+ }
+ 
+ .imGal{
+	box-shadow: 10px 10px 5px black;
+	height: auto;
+	width:50%;
+	position:flex;
+ }
+ .gal-sec2{
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	font-family:"";
+	font-size:3vw;
+	padding-top:30px;
+	padding-bottom:50px;	
+}
+/* Comment Section */
+.com-sec{
+	height:auto;
+	box-sizing:border-box;
+	text-align:center;
+	padding-top:0;
+	padding-bottom:50px;
+	border-bottom:2px solid #ccc;
+}
+/* read more*/
+#more {display:none;
+		}
+		css
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.recipe{
+	font-size: 50px;
+	background-color:pink; 
+	color:black;	
+}
+img{
+	width:25px;
+	height:25px;
+}
+
+.title::after {
+    content: '';
+    background: rgb(252 249 249 / 0%);
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: ;
+    50%: ;
+    translate: translateX(-50%);
+}
+	
+
