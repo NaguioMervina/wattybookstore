@@ -7,7 +7,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
     <!-- Page level plugins -->
     <script src="vendor/chart.js/Chart.min.js"></script>
 

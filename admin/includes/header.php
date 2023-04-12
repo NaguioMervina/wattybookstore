@@ -32,6 +32,12 @@ if(isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === true) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+    
+
+
 
 <style>
 .topbar .dropdown-list .dropdown-header {
