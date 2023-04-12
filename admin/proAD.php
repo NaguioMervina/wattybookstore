@@ -105,60 +105,64 @@ include('connect1.php');
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 									<!-- ADD NEW USER MODAL-->
-                    <div class="modal fade" id="studentaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"    aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add New Product </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <form action="insertcode1.php" method="post" enctype="multipart/form-data">
+                                    <div class="modal fade" id="studentaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Product </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="insertcode1.php" method="post" enctype="multipart/form-data">
 
-<div class="modal-body">
-    <div class="form-group">
-        <label> Product Image </label>
-        <input type="file" name="product_image">
-    </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label> Product Image </label>
+                        <input type="file" name="product_image">
+                    </div>
 
-    <div class="form-group">
-        <label> Product Name </label>
-        <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
-    </div>
+                    <div class="form-group">
+                        <label> Product Name </label>
+                        <input type="text" name="product_name" class="form-control" placeholder="Enter Product Name">
+                    </div>
 
-    <div class="form-group">
-        <label> Price </label>
-        <input type="text" name="product_price" class="form-control" placeholder="Enter Price">
-    </div>
+                    <div class="form-group">
+                        <label> Price </label>
+                        <input type="text" name="product_price" class="form-control" placeholder="Enter Price">
+                    </div>
 
-    <div class="form-group">
-        <label> Quantity </label>
-        <input type="text" name="product_qty" class="form-control" placeholder="Enter Quantity">
-    </div>
+                    <div class="form-group">
+                        <label> Quantity </label>
+                        <input type="text" name="product_qty" class="form-control" placeholder="Enter Quantity">
+                    </div>
 
-    <div class="form-group">
-        <label> Product Code </label>
-        <input type="text" name="product_code" class="form-control" placeholder="Enter Product Code">
-    </div>
-
-    <div class="form-group">
-        <label> Product Description </label>
-        <input type="text" name="product_desc" class="form-control" placeholder="Enter Description">
-    </div>
+                    <div class="form-group">
+    <label>Product Code</label>
+    <input type="text" name="product_code" id="product_code" class="form-control" placeholder="Enter Product Code" readonly>
+    <button type="button" onclick="generateCode()" class="btn btn-primary">Generate Code</button>
 </div>
 
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
-</div>
 
-</form>
-
-
+                    <div class="form-group">
+                        <label> Product Description </label>
+                        <input type="text" name="product_desc" class="form-control" placeholder="Enter Description">
                     </div>
                 </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" name="insertdata" class="btn btn-primary">Save Data</button>
+                </div>
+
+            </form>
+        </div>
     </div>
+</div>
+
+
+
+
 
     <!-- EDIT POP UP FORM (Bootstrap MODAL) -->
     <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -202,9 +206,10 @@ include('connect1.php');
             <input type="file" name="product_image" id="product_image" class="form-control">
         </div>
         <div class="form-group">
-            <label>Product Code</label>
-            <input type="text" name="product_code" id="product_code" class="form-control" required>
-        </div>
+    <label>Product Code</label>
+    <input type="text" name="product_code" id="product_code" class="form-control" placeholder="Enter Product Code" readonly>
+    <button type="button" onclick="generateCode()" class="btn btn-primary">Generate Code</button>
+</div>
         <div class="form-group">
             <label>Product Description</label>
             <textarea name="product_desc" id="product_desc" class="form-control" required></textarea>
@@ -215,6 +220,7 @@ include('connect1.php');
         <button type="submit" name="updatedata" class="btn btn-primary">Update Data</button>
     </div>
 </form>
+
 
             </div>
         </div>
@@ -334,9 +340,7 @@ include('connect1.php');
 
             </div>
 					
-                                        
-    </body>
-</html>
+           
 				<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -344,16 +348,24 @@ include('connect1.php');
       
       
                     <!-- Content Row -->
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
+                    
                     <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
                     <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 										
                    
                 </div>
                 <!-- /.container-fluid -->
+                <script>
+   function generateCode() {
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    var code = "";
+    for (var i = 0; i < 8; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    document.getElementById("product_code").value = code;
+}
+
+</script>
 								  <script>
         $(document).ready(function () {
 
@@ -440,6 +452,7 @@ include('connect1.php');
     </script>
 
 
+
                     <!-- Content Row -->
 
                    
@@ -456,7 +469,9 @@ include('connect1.php');
 		include('includes/scripts.php');
 		include('includes/footer.php');
 		
-		?>
+		?>                             
+    </body>
+</html>
 
  
 
