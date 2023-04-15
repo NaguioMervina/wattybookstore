@@ -80,7 +80,7 @@ if(isset($_SESSION['user_id'])) {
                 <div class="card-body">
             <?php
 			$connection = mysqli_connect("localhost","root","");
-			$db = mysqli_select_db($connection, 'motomaticdb');
+			$db = mysqli_select_db($connection, 'bookstore');
 
 	$user_id = $_SESSION['user_id'];
     $query = "SELECT * FROM orders WHERE user_id='".$user_id."' ORDER BY status DESC";

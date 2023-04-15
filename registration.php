@@ -2,7 +2,7 @@
 session_start();
 $con = mysqli_connect('localhost','root','');
 
-mysqli_select_db($con,'motomaticdb');
+mysqli_select_db($con,'bookstore');
 
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];

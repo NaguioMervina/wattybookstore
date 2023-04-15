@@ -154,23 +154,17 @@ $status="Pending";
 	  $stmt2 = $conn->prepare('DELETE FROM cart');
 	  $stmt2->execute();
 	  $data .= '<div class="text-center">
-	  
-								
-								<h2 class="title"><center><b>SUCCESFULLY PLACED YOUR ORDER! !</b></center></h2>
-
-								<h1 class="display-4 mt-2 text-danger"><center> YOUR ORDER DETAILS:</center></h1>
-								<h2 class="bg-danger text-light rounded p-2"> ' . $products . '</h2>
-								<h2> ' . $name . '</h2>
-								<h4> ' . $email . '</h4>
-								<h4>' . $phone . '</h4>
-								<h4>Order Total: </h4>
-								<h4>Please pay ₱' . number_format($grand_total,2) . ' upon delivery.</h4>						
-								<h2>Payment Method : ' . $pmode . '</h2>
-								
-
-								
-								
-						  </div>';
+	  <h2 class="title"><b>SUCCESSFULLY PLACED YOUR ORDER!</b></h2>
+	  <h1 class="display-4 mt-2 text-danger"><b>YOUR ORDER DETAILS:</b></h1>
+	  <h2 class="bg-danger text-light rounded p-2">' . $products . '</h2>
+	  <h2> ' . $name . '</h2>
+	  <h4>' . $email . '</h4>
+	  <h4>' . $phone . '</h4>
+	  <h4><b>Order Total:</b></h4>
+	  <h4>Please pay ₱' . number_format($grand_total, 2) . ' upon delivery.</h4>
+	  <h2><b>Payment Method:</b> ' . $pmode . '</h2>
+  </div>
+  ';
 	  echo $data;
 	}
 ?>

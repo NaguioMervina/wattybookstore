@@ -1,7 +1,7 @@
 <?php
 session_start();
 $con = mysqli_connect('localhost','root','');
-mysqli_select_db($con, 'motomaticdb');
+mysqli_select_db($con, 'bookstore');
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {

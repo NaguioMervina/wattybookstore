@@ -1,7 +1,6 @@
 <?php
-	$conn = new mysqli("localhost","root","","motomaticdb");
+	$conn = new mysqli("localhost","root","","bookstore");
 	if($conn->connect_error){
 		die("Connection Failed!".$conn->connect_error);
 	}
 ?>
-<!-- "localhost","id16952465_kenken","wM33#E\_)4a(xstC","id16952465_motomaticdb" -->

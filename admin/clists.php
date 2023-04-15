@@ -56,7 +56,7 @@ include('connect.php');
 																
 																  <?php
 																		$connection = mysqli_connect("localhost","root","");
-																		$db = mysqli_select_db($connection, 'motomaticdb');
+																		$db = mysqli_select_db($connection, 'bookstore');
 
 																		$query = "SELECT * FROM orders ";
 																		$query_run = mysqli_query($connection, $query);
@@ -164,7 +164,7 @@ include('connect.php');
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-
+                                                            
                 <form action="updatecode.php" method="POST">
 
                     <div class="modal-body">
@@ -276,7 +276,7 @@ include('connect.php');
 
                     <?php
                 $connection = mysqli_connect("localhost","root","");
-                $db = mysqli_select_db($connection, 'motomaticdb');
+                $db = mysqli_select_db($connection, 'bookstore');
 
                 $query = "SELECT * FROM usertable";
                 $query_run = mysqli_query($connection, $query);
@@ -417,29 +417,88 @@ include('connect.php');
     </script>
 
     <script>
-        $(document).ready(function () {
+       // Define a global variable to hold the user ID of the record being edited
+var userId;
 
-            $('.editbtn').on('click', function () {
+// Function to show the edit modal and populate the form fields with data
+function showEditModal(id, fname, lname, email, phone, address, username, password, usertype) {
+  // Set the user ID of the record being edited
+  userId = id;
+  
+  // Set the values of the form fields
+  $('#fname').val(fname);
+  $('#lname').val(lname);
+  $('#email').val(email);
+  $('#phone').val(phone);
+  $('#address').val(address);
+  $('#username').val(username);
+  $('#password').val(password);
+  $('#usertype').val(usertype);
 
-                $('#editmodal').modal('show');
+  // Show the edit modal
+  $('#editmodal').modal('show');
+}
 
-                $tr = $(this).closest('tr');
+// Event listener for the edit button
+$('.editbtn').on('click', function() {
+  // Get the data from the table row
+  var $tr = $(this).closest('tr');
+  var id = $tr.find('.id').text();
+  var fname = $tr.find('.fname').text();
+  var lname = $tr.find('.lname').text();
+  var email = $tr.find('.email').text();
+  var phone = $tr.find('.phone').text();
+  var address = $tr.find('.address').text();
+  var username = $tr.find('.username').text();
+  var password = $tr.find('.password').text();
+  var usertype = $tr.find('.usertype').text();
 
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
+  // Call the showEditModal function with the data from the table row
+  showEditModal(id, fname, lname, email, phone, address, username, password, usertype);
+});
 
-                console.log(data);
+// Event listener for the form submission
+$('#edit-form').on('submit', function(e) {
+  e.preventDefault();
+  
+  // Get the form data
+  var formData = {
+    'id': userId,
+    'fname': $('#fname').val(),
+    'lname': $('#lname').val(),
+    'email': $('#email').val(),
+    'phone': $('#phone').val(),
+    'address': $('#address').val(),
+    'username': $('#username').val(),
+    'password': $('#password').val(),
+    'usertype': $('#usertype').val()
+  };
+  
+  // Send the form data to the server using AJAX
+  $.ajax({
+    type: 'POST',
+    url: 'updatecode.php',
+    data: formData,
+    success: function(response) {
+      // Hide the edit modal and update the table row with the new data
+      $('#editmodal').modal('hide');
+      $tr.find('.fname').text(formData.fname);
+      $tr.find('.lname').text(formData.lname);
+      $tr.find('.email').text(formData.email);
+      $tr.find('.phone').text(formData.phone);
+      $tr.find('.address').text(formData.address);
+      $tr.find('.username').text(formData.username);
+      $tr.find('.password').text(formData.password);
+      $tr.find('.usertype').text(formData.usertype);
+    },
+    error: function(xhr, status, error) {
+      // Display an error message if there was an error
+      console.log(xhr.responseText);
+      alert('There was an error updating the record.');
+    }
+  });
+});
 
-                $('#update_id').val(data[0]);
-								$('#fname').val(data[1]);
-                $('#lname').val(data[2]);
-                $('#email').val(data[3]);
-                $('#username').val(data[4]);
-                $('#password').val(data[5]);
-								$('#usertype').val(data[6]);
-            });
-        });
     </script>
 
             </div>

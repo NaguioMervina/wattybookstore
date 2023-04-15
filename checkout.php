@@ -63,35 +63,26 @@ if(isset($_SESSION['user_id'])) {
 
   
 
-		<nav><center>
-	<ul><b>
-		                
-						 <li><a href="AvailPro.php"><b>HOME</a></li>
-						 <li><a href="order.php">ORDER </a></li>
-						 <li><a href="cart.php">MY CART</a></li>
-			
-			<?php 
-	   include "config.php";
-	   
-	   $sqlCount = "select count(id) as itemCount FROM cart where id = id";
-	   $resultCount = mysqli_query($conn, $sqlCount);
-	   $rowCount = mysqli_fetch_assoc($resultCount);
-	   if($rowCount['itemCount']>0){
-			   echo '<span style="color:red;border-radius:15px;">'.$rowCount['itemCount'].'</span></a>';
-	   }else{
-			   echo '<span style="color:red;border-radius:15px;">0</span></a>';
-	   }
-   
-   ?>
-	   
+	<nav>
+	<center>
+		<ul>
+			<li><a href="AvailPro.php">HOME</a></li>
+			<li><a href="order.php">ORDER</a></li>
+			<li><a href="cart.php">MY CART<?php
+				include "config.php";
+				$sqlCount = "SELECT COUNT(id) AS itemCount FROM cart WHERE id = id";
+				$resultCount = mysqli_query($conn, $sqlCount);
+				$rowCount = mysqli_fetch_assoc($resultCount);
+				if($rowCount['itemCount'] > 0) {
+					echo '<span style="color: red; border-radius: 15px;">'.$rowCount['itemCount'].'</span>';
+				} else {
+					echo '<span style="color: red; border-radius: 15px;">0</span>';
+				}
+			?></a></li>
+		</ul>
+	</center>
+</nav>
 	
-					
-	
-	</ul>	</center>			
-				</nav>
-				
-				
-				
 		<div>
 	   <a href="logout.php"> LOG OUT
 	   </a>
