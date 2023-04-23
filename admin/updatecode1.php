@@ -8,7 +8,6 @@ if(isset($_POST['updatedata']))
     $product_name = trim($_POST['product_name']);
 $product_price = trim($_POST['product_price']);
 $product_qty = trim($_POST['product_qty']);
-$product_code = trim($_POST['product_code']);
 $product_desc = trim($_POST['product_desc']);
 
     // Check if a new image was uploaded
@@ -31,9 +30,9 @@ $product_desc = trim($_POST['product_desc']);
         }
         $new_image = $target_dir . $id . "." . $imageFileType;
         move_uploaded_file($_FILES["product_image"]["tmp_name"], $new_image);
-        $query = "UPDATE product SET product_name='$product_name', product_price='$product_price', product_qty='$product_qty', product_code='$product_code', product_desc='$product_desc', product_image='$new_image' WHERE id='$id'";
+        $query = "UPDATE product SET product_name='$product_name', product_price='$product_price', product_qty='$product_qty',  product_desc='$product_desc', product_image='$new_image' WHERE id='$id'";
     } else {
-        $query = "UPDATE product SET product_name='$product_name', product_price='$product_price', product_qty='$product_qty', product_code='$product_code', product_desc='$product_desc' WHERE id='$id'";
+        $query = "UPDATE product SET product_name='$product_name', product_price='$product_price', product_qty='$product_qty',  product_desc='$product_desc' WHERE id='$id'";
     }
 
     $query_run = mysqli_query($connection, $query);
@@ -45,7 +44,8 @@ $product_desc = trim($_POST['product_desc']);
     }
     else
     {
-        echo '<script> alert("Data Not Updated"); </script>';
+        $message = " Data Not Updated! ";
+        echo "<script type='text/javascript'>alert('$message');window.location='http://localhost/wattybookstore/admin/proAD.php'</script>";
     }
 }
 ?>

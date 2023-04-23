@@ -206,11 +206,6 @@ include('connect1.php');
             <input type="file" name="product_image" id="product_image" class="form-control">
         </div>
         <div class="form-group">
-    <label>Product Code</label>
-    <input type="text" name="product_code" id="product_code" class="form-control" placeholder="Enter Product Code" readonly>
-    <button type="button" onclick="generateCode()" class="btn btn-primary">Generate Code</button>
-</div>
-        <div class="form-group">
             <label>Product Description</label>
             <textarea name="product_desc" id="product_desc" class="form-control" required></textarea>
         </div>
@@ -445,8 +440,8 @@ include('connect1.php');
                 $('#product_name').val(data[2]);
                 $('#product_price').val(data[3]);
                 $('#product_qty').val(data[4]);
-								$('#product_code').val(data[5]);
-								$('#product_desc').val(data[6]);
+
+								$('#product_desc').val(data[5]);
             });
         });
     </script>

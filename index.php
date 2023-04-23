@@ -32,8 +32,8 @@
 				<center>
 					<ul> 
 						<li><a href="index.php"><b>HOME</b></a></li>
-						<li><a href="AvailproVISIT.php">AVAILABLE PRODUCTS</a></li>
-						<li><a href="AboutUS.php">ABOUT US</a></li>
+					<!--	<li><a href="AvailproVISIT.php">AVAILABLE PRODUCTS</a></li>
+						<li><a href="AboutUS.php">ABOUT US</a></li> -->
 						<li><a href="Signin_Signup.php">LOGIN HERE</a></li>
 					</ul>
 				</center>

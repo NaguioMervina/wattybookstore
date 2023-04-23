@@ -120,7 +120,6 @@ if(isset($_SESSION['user_id'])) {
           <select name="pmode" class="form-control">
             <option value="" selected disabled>------</option>
             <option value="COD" style="font-weight: bold">CASH ON DELIVERY</option>
-            <option value="PAYPAL" style="font-weight: bold">PAYPAL</option>
           </select>
         </div>
         <div class="form-group">
