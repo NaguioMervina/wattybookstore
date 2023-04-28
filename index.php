@@ -224,48 +224,70 @@ setInterval(function() {
 }, 5000);
 
 </script>
-	<div class="small-container" >	
-			<div class="title">
-			<b>	<h2>All Available Products </h2></b>
-			</div>
-   <div id="message"></div>	
-     <div class="row mt-2 pb-3">
-   <?php
-  			include 'config.php';
-  			$stmt = $conn->prepare('SELECT * FROM product');
-  			$stmt->execute();
-  			$result = $stmt->get_result();
-  			while ($row = $result->fetch_assoc()):
-   ?>
-   <div class="card" style="width: 18rem;">
-  <img src="images/<?= $row['product_image']?>"class="card-img-top" height="300" width="300">
-  <div class="card-body">
-    <h2 class="card-title"><?= $row['product_name']?></h2>
-	<p class="card-title">₱&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></p>
-	<H5> <B>Product Details:</B></H5> 
-    <h5 class="card-text" style="font-weight:normal; font-style:italic;"><?= $row['product_desc'] ?></h5>
-	<H5> <B> STOCK: &nbsp; <?= $row['product_qty'] ?></B></H5>
+<div class="small-container">
+  <div class="title">
+    <b><h2>All Available Products </h2></b>
   </div>
-  <div class="card-body text-center">
-    <form action="" class="form-submit">
-      <div class="row-flex">
-        <?php
-          $qty = $row['product_qty'];
-          if($qty == '0'){
-            echo '<p style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;">- OUT OF STOCK -</p>';
-          }else{
-        ?> 
-        <input type="number" min="0" max="<?php echo $qty; ?>" class="form-control pqty" placeholder="---Enter Quantity--" style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;" value="1">												
-        <input type="hidden" class="pid" value="<?php echo $row['id'];?>">
-        <input type="hidden" class="pname" value="<?php echo $row['product_name'];?>">
-        <input type="hidden" class="porqty" value="<?php echo $row['product_qty'];?>">
-        <input type="hidden" class="pprice" value="<?php echo $row['product_price'];?>">
-        <input type="hidden" class="pimage" value="<?php echo $row['product_image'];?>">
-        <input type="hidden" class="pcode" value="<?php echo $row['product_code'];?>">
-        <input type="hidden" class="pdesc" value="<?php echo $row['product_desc'];?>">
-        <a href="<?php if(isset($_SESSION['user_id'])) echo '#'; else echo 'Signin_Signup.php'; ?>" style="font-size:16px; font-weight: bold; padding: 10px 60px 10px 60px; border-radius: 30px;" class="btn btn-info btn-block addItemBtn <?php if(!isset($_SESSION['user_id'])) echo 'login-btn' ?>">
-  <?php if(isset($_SESSION['user_id'])) echo 'ADD TO CART'; else echo 'LOGIN TO ADD TO CART'; ?>
-</a>
+  <div id="message"></div>
+  <div class="search-container">
+    <form method="GET" action="" class="search-form" style="text-align: right;">
+      <input type="text" placeholder="Search products..." name="search">
+      <button type="submit" name="submit-search">Search</button>
+    </form>
+  </div>
+  <div class="row mt-2 pb-3">
+    <?php
+      include 'config.php';
+      if(isset($_GET['submit-search'])) {
+        $search = mysqli_real_escape_string($conn, $_GET['search']);
+        $stmt = $conn->prepare("SELECT * FROM product WHERE product_name LIKE '%$search%' OR product_desc LIKE '%$search%'");
+      } else {
+        $stmt = $conn->prepare('SELECT * FROM product');
+      }
+      $stmt->execute();
+      $result = $stmt->get_result();
+      while ($row = $result->fetch_assoc()):
+    ?>
+    <div class="card" style="width: 18rem;">
+      <img src="images/<?= $row['product_image']?>"class="card-img-top" height="300" width="300">
+      <div class="card-body">
+        <h2 class="card-title"><?= $row['product_name']?></h2>
+        <p class="card-title">₱&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></p>
+        <h5><b>Product Details:</b></h5>
+        <h5 class="card-text" style="font-weight:normal; font-style:italic;"><?= $row['product_desc'] ?></h5>
+        <h5><b>STOCK: &nbsp; <?= $row['product_qty'] ?></b></h5>
+      </div>
+      <div class="card-body text-center">
+        <form action="" class="form-submit">
+          <div class="row-flex">
+            <?php
+              $qty = $row['product_qty'];
+              if($qty == '0'){
+                echo '<p style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;">- OUT OF STOCK -</p>';
+              }else{
+            ?> 
+            <input type="number" min="0" max="<?php echo $qty; ?>" class="form-control pqty" placeholder="---Enter Quantity--" style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;" value="1">												
+            <input type="hidden" class="pid" value="<?php echo $row['id'];?>">
+            <input type="hidden" class="pname" value="<?php echo $row['product_name'];?>">
+            <input type="hidden" class="porqty" value="<?php echo $row['product_qty'];?>">
+            <input type="hidden" class="pprice" value="<?php echo $row['product_price'];?>">
+            <input type="hidden" class="pimage" value="<?php echo $row['product_image'];?>">
+            <input type="hidden" class="pcode" value="<?php echo $row['product_code'];?>">
+            <input type="hidden" class="pdesc" value="<?php echo $row['product_desc'];?>">
+            <a href="<?php if(isset($_SESSION['user_id'])) echo '#'; else echo 'Signin_Signup.php'; ?>" style="font-size:16px; font-weight: bold; padding: 10px 60px 10px 60px; border-radius: 30px;" class="btn btn-info btn-block addItemBtn <?php if(!isset($_SESSION['user_id'])) echo 'login-btn' ?>">
+              <?php if(isset($_SESSION['user_id'])) echo 'ADD TO CART'; else echo 'LOGIN TO ADD TO CART'; ?>
+            </a>
+            <?php 
+              }
+            ?>
+          </div>
+        </form>
+      </div>
+    </div>
+    <?php endwhile; ?>
+  </div>
+</div>
+
 <script>
   // add event listener to login buttons
   (function() {
@@ -277,20 +299,6 @@ setInterval(function() {
     });
   })();
 </script>
-
-
-
-        <?php 
-          }
-        ?>
-      </div>
-    </form>
-  </div>
-</div>
-	   <?php endwhile; ?>
-</div>
-</div>
-
 
 <div class="footer">
 	<div class="container">

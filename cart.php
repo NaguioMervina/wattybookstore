@@ -106,13 +106,13 @@ a{
             <thead>
               
               <tr>
-                <th><b>ID NUMBER</th>
-                <th><b>PHOTO</th>
-                <th><b><CENTER>TYPE OF PRODUCT</CENTER></th>
-                <th><b>PRODUCT PRICE</th>
-                <th><b>ORDER TOTAL ITEM</th>
-                <th><b>TOTAL AMOUNT</th>
-                <th>
+                <th style="text-align:center"><b>ID NUMBER</th>
+                <th style="text-align:center"><b>PHOTO</th>
+                <th style="text-align:center"><b><CENTER>TYPE OF PRODUCT</CENTER></th>
+                <th style="text-align:center"><b>PRODUCT PRICE</th>
+                <th style="text-align:center"><b>ORDER TOTAL ITEM</th>
+                <th style="text-align:center"><b>TOTAL AMOUNT</th>
+                <th style="text-align:center">
                   <a href="action.php?clear=all" class="badge-danger badge p-1" onclick="return confirm('DELETE ALL ITEMS IN CART?');"><B><CENTER> REMOVE ALL </CENTER></B></a>
                 </th>
               </tr>
@@ -128,26 +128,26 @@ a{
                 while ($row = $result->fetch_assoc()):
               ?>
               <tr>
-                <td><?= $row['id'] ?></td>
+                <td style="text-align:center"><?= $row['id'] ?></td>
                 <input type="hidden" class="pid" value="<?= $row['id'] ?>">
-                <td><img src="images/<?= $row['product_image'] ?>" width="50"></td>
-                <td><?= $row['product_name'] ?></td>
-                <td>
-                  <i class="fas"></i>₱&nbsp;&nbsp;<?= number_format($row['product_price'],2); ?>
+                <td style="text-align:center"><img src="images/<?= $row['product_image'] ?>" width="50"></td>
+                <td style="text-align:center"><?= $row['product_name'] ?></td>
+                <td style="text-align:center">
+                  <i class="fas"></i>₱&nbsp;<?= number_format($row['product_price'],2); ?>
                 </td>
                 <input type="hidden" class="pprice" value="<?= $row['product_price'] ?>">
                 <td>
-                  <input type="number" class="form-control itemQty" value="<?= $row['qty'] ?>" style="width:75px;">
+                  <input type="number" class="form-control itemQty" value="<?= $row['qty'] ?>" style="width:75px; text-align:center;">
                 </td>
-                <td><i class="fas"></i>₱&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
-                <td>
+                <td style="text-align:center"><i class="fas"></i>₱&nbsp;&nbsp;<?= number_format($row['total_price'],2); ?></td>
+                <td style="text-align:center">
                   <a href="action.php?remove=<?= $row['id'] ?>" class="text-danger lead" onclick="return confirm('Are you sure want to remove this item?');" style= "color:black ; font-size:16px;"><center><b>REMOVE</b></center></a>
                 </td>
               </tr>
               <?php $grand_total += $row['total_price']; ?>
               <?php endwhile; ?>
               <tr>
-                <td colspan="3">
+                <td colspan="3" style="text-align:center">
                   
                 </td>
                 <td colspan="2"><b>TOTAL PAYMENT</b></td>

@@ -15,7 +15,7 @@ if(isset($_POST['insertdata']))
 		$usertype = $_POST['usertype'];
     
 
-    $query = "INSERT INTO usertable (`fname`,`lname`,`username`,`email`,`phone`,`address`,`password`,`usertype`) 
+    $query = "INSERT INTO users (`fname`,`lname`,`username`,`email`,`phone`,`address`,`password`,`usertype`) 
 										VALUES ('$fname','$lname','$username','$email','$phone','$address','$password','$usertype')";
     $query_run = mysqli_query($connection, $query);
 

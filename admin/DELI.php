@@ -25,14 +25,14 @@ include('connect1.php');
                     <ul class="navbar-nav ml-auto">
 										
 										
-										   <!-- Nav Item - Alerts -->
+						<!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i style="color:black;" class="fas fa-bell fa-fw"></i>
                               
-															<!-- Counter - Notification -->
-																	<?php 
+															 Counter - Notification
+                                                             <?php 
 																	include "config.php";
 																	
 																	$sqlCount = "select count(id) as orderCount FROM orders where id = id";
@@ -47,7 +47,7 @@ include('connect1.php');
 																?>
                               
 																
-                            <!-- Dropdown - Notification -->
+                             Dropdown - Notification 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -77,8 +77,8 @@ include('connect1.php');
 													?>
 																
 																
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
 										
                         <div class="topbar-divider d-none d-sm-block"></div>
 												

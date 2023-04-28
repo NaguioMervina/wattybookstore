@@ -94,15 +94,13 @@ if(isset($_SESSION['user_id'])) {
                         <thead>
                             <tr>
                         
-                                <th scope="col"><b>NAME</th>
-                                <th scope="col"><b>PHONE NUMBER</th>
-                                <th scope="col"><b>COMPLETE ADDRESS</th>
-                                <th scope="col"><b>PAYMENT METHOD</th>
-								<th scope="col"><b>PRODUCTS(Quantity)</th>
-                                <th scope="col"><b>AMOUNT </th>
-                                <th scope="col"><b>STATUS</th>
-                               
-                               
+                                <th scope="col" style="text-align:center"><b>NAME</th>
+                                <th scope="col" style="text-align:center"><b>PHONE NUMBER</th>
+                                <th scope="col" style="text-align:center"><b>ADDRESS</th>
+                                <th scope="col" style="text-align:center"><b>PAYMENT METHOD</th>
+								<th scope="col" style="text-align:center"><b>PRODUCTS(qty)</th>
+                                <th scope="col" style="text-align:center"><b>AMOUNT </th>
+                                <th scope="col" style="text-align:center"><b>STATUS</th>
                             </tr>
                         </thead>
                         <?php
@@ -110,15 +108,15 @@ if(isset($_SESSION['user_id'])) {
                 {
                     foreach($query_run as $row)
                     {
-            ?>
+                        ?>
                         <tbody>
                             <tr>
-																<td style="text-align:center"> <?php echo $row['name']; ?> </td>                            
+							    <td style="text-align:center"> <?php echo $row['name']; ?> </td>                            
                                 <td style="text-align:center"> <?php echo $row['phone']; ?> </td>    
                                 <td style="text-align:center"> <?php echo $row['address']; ?> </td>  
                                 <td style="text-align:center"><?php echo $row['pmode']; ?> </td>  
                                 <td style="text-align:center"> <?php echo $row['products']; ?> </td>  
-                                <td style="text-align:center">₱&nbsp;&nbsp;<?php echo number_format($row['amount_paid'],2); ?> </td>  
+                                <td style="text-align:center">₱&nbsp;<?php echo number_format($row['amount_paid'],2); ?> </td>  
                                 <td style="text-align:center"> <?php echo $row['status']; ?> </td>              
                              </tr>
                            </tbody>   

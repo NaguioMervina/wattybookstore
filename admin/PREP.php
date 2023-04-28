@@ -25,13 +25,13 @@ include('connect1.php');
                     <ul class="navbar-nav ml-auto">
 										
 										
-										   <!-- Nav Item - Alerts -->
+										   <!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i style="color:black;" class="fas fa-bell fa-fw"></i>
                               
-															<!-- Counter - Notification -->
+															 Counter - Notification
 																	<?php 
 																	include "config.php";
 																	
@@ -47,7 +47,7 @@ include('connect1.php');
 																?>
                               
 																
-                            <!-- Dropdown - Notification -->
+                             Dropdown - Notification 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -77,8 +77,8 @@ include('connect1.php');
 													?>
 																
 																
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
 										
                         <div class="topbar-divider d-none d-sm-block"></div>
 												
@@ -126,7 +126,7 @@ include('connect1.php');
          
 			
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Preparing for Delivery Lists</h1>      
+                        <h1 class="h3 mb-0 text-gray-800">Preparing Orders List</h1>      
                     </div>
                 <div class="container ">
                     
@@ -173,7 +173,6 @@ include('connect1.php');
                                 
                                 <td>
                                 <form action="code.php" method="POST">
-
                                 <div class="form-group">
     <input type="hidden" name="ids" id="ids" value="<?php echo $row['id']; ?>" class="form-control">
     <select name="status" class="form-control" onchange="enableButton(this)">

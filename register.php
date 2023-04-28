@@ -31,14 +31,6 @@
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="Email Address" name="email" id="" required>
                 </div>
-				<div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Phone Number" name="phone" id="" required>
-                </div>
-				<div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Address" name="address" id="" required>
-                </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" name="password" id="" required>

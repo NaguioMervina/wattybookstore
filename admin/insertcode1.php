@@ -36,7 +36,8 @@ if(isset($_POST['insertdata']))
                 $message = " Data Saved ";
                 echo "<script type='text/javascript'>alert('$message');window.location='http://localhost/wattybookstore/admin/proAD.php'</script>";
             } else {
-                echo '<script> alert("Data Not Saved"); </script>';
+                $message = " Data Not Saved ";
+                echo "<script type='text/javascript'>alert('$message');window.location='http://localhost/wattybookstore/admin/proAD.php'</script>";
             }
         } else {
             echo '<script> alert("Error uploading file. Please try again."); </script>';

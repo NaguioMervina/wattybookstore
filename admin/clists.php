@@ -25,14 +25,14 @@ include('connect.php');
               
                     <ul class="navbar-nav ml-auto">
 										
-										<!-- Nav Item - Alerts -->
+						<!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i style="color:black;" class="fas fa-bell fa-fw"></i>
                               
-															<!-- Counter - Notification -->
-																	<?php 
+															 Counter - Notification
+                                                             <?php 
 																	include "config.php";
 																	
 																	$sqlCount = "select count(id) as orderCount FROM orders where id = id";
@@ -47,7 +47,7 @@ include('connect.php');
 																?>
                               
 																
-                            <!-- Dropdown - Notification -->
+                             Dropdown - Notification 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -55,9 +55,8 @@ include('connect.php');
                                 </h6>
 																
 																  <?php
-																		$connection = mysqli_connect("localhost","root","");
-																		$db = mysqli_select_db($connection, 'bookstore');
-
+																		 $connection = mysqli_connect("localhost","root","");
+                $db = mysqli_select_db($connection, 'bookstore');
 																		$query = "SELECT * FROM orders ";
 																		$query_run = mysqli_query($connection, $query);
 																		
@@ -78,8 +77,8 @@ include('connect.php');
 													?>
 																
 																
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
 										
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -154,84 +153,83 @@ include('connect.php');
     </div>
 
     <!-- EDIT POP UP FORM (Bootstrap MODAL) -->
-    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Edit User Data </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                                                            
-                <form action="updatecode.php" method="POST">
-
-                    <div class="modal-body">
-
-                        <input type="hidden" name="update_id" id="update_id">
-
-                        <div class="form-group">
-                            <label> First Name </label>
-                            <input type="text" name="fname" id="fname" class="form-control"
-                                placeholder="Enter First Name">
-                        </div>
-												
-												 <div class="form-group">
-                            <label> Last Name </label>
-                            <input type="text" name="lname" id="lname" class="form-control"
-                                placeholder="Enter Last Name">
-                        </div>
-												
-			
-												
-                        <div class="form-group">
-                            <label> Email </label>
-                            <input type="text" name="email" id="email" class="form-control"
-                                placeholder="Enter Email">
-                        </div>
-												
-												<div class="form-group">
-                            <label> Phone Number </label>
-                            <input type="text" name="phone" id="phone" class="form-control"
-                                placeholder="Enter Phone Number">
-                        </div>
-												
-						<div class="form-group">
-                            <label> Address </label>
-                            <input type="text" name="address" id="address" class="form-control"
-                                placeholder="Enter Address">
-                        </div>
-                        <div class="form-group">
-                            <label> Username </label>
-                            <input type="text" name="username" id="username" class="form-control"
-                                placeholder="Enter Email">
-                        </div>
-                        <div class="form-group">
-                            <label> Password </label>
-                            <input type="text" name="password" id="password" class="form-control"
-                                placeholder="Enter password">
-                        </div>
-												
-												  <div class="form-group">
-                            <label> Usertype </label>
-                            <input type="text" name="usertype" id="usertype" class="form-control"
-                                placeholder="Enter type of User (admin or user only)">
-                        </div>
-
-                       
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="updatedata" class="btn btn-primary">Update Data</button>
-                    </div>
-                </form>
-
-            </div>
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="update.php" method="POST">
+        <div class="modal-body">
+          <input type="hidden" name="update_id" id="update_id">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" id="fname" class="form-control" placeholder="Enter First Name" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="lname" class="form-control" placeholder="Enter Last Name" required>
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Enter Username" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter Phone Number" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" name="address" id="address" class="form-control" placeholder="Enter Address" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
+          </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="updatedata" class="btn btn-primary">Update Data</button>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
 
-    <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+
+<script>
+$(document).ready(function(){
+  $('.editbtn').on('click', function(){
+    var id = $(this).data('id');
+    $.ajax({
+      url: 'getdata.php',
+      type: 'POST',
+      data: {id: id},
+      success: function(response){
+        var data = JSON.parse(response);
+        $('#update_id').val(data.id);
+        $('#fname').val(data.fname);
+        $('#lname').val(data.lname);
+        $('#username').val(data.username);
+        $('#email').val(data.email);
+        $('#phone').val(data.phone);
+        $('#address').val(data.address);
+        $('#password').val(data.password);
+      }
+    });
+  });
+});
+</script>
+
+
+    <!-- DELETE POP UP FORM (Bootstrap MODAL) 
     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -259,7 +257,7 @@ include('connect.php');
 
             </div>
         </div>
-    </div>
+    </div> -->
 
 
          
@@ -278,7 +276,7 @@ include('connect.php');
                 $connection = mysqli_connect("localhost","root","");
                 $db = mysqli_select_db($connection, 'bookstore');
 
-                $query = "SELECT * FROM usertable";
+                $query = "SELECT * FROM users";
                 $query_run = mysqli_query($connection, $query);
             ?>
                     <table id="datatableid" class="table ">
@@ -290,9 +288,9 @@ include('connect.php');
                                 <th scope="col">EMAIL</th>
                                 <th scope="col">USERNAME</th>
                                 <th scope="col"> PASSWORD</th>
-								<th scope="col">USERTYPE</th>
+								<!--<th scope="col">USERTYPE</th>-->
                                 <th scope="col"> EDIT </th>
-                                <th scope="col"> DELETE </th>
+                               <!-- <th scope="col"> DELETE </th> -->
                             </tr>
                         </thead>
                         <?php
@@ -309,15 +307,15 @@ include('connect.php');
                                 <td> <?php echo $row['email']; ?> </td>
                                 <td> <?php echo $row['username']; ?> </td>
                                 <td> <?php echo $row['password']; ?> </td>
-								<td> <?php echo $row['usertype']; ?> </td>
+								<!--<td> <?php echo $row['usertype']; ?> </td> -->
                                
                                
                                 <td>
                                     <button type="button" class="btn btn-success editbtn"> <i class= "fa fa-edit"> </i> </button>
                                 </td>
-                                <td>
+                              <!--  <td>
                                     <button type="button" class="btn btn-danger deletebtn"> <i class= "fa fa-trash"> </i> </button>
-                                </td>
+                                </td> -->
                             </tr>
                         </tbody>
                         <?php           

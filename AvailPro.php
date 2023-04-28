@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,13 +76,13 @@ if(isset($_SESSION['user_id'])) {
         // Proceed with user info retrieval
         $user_id = $_SESSION['user_id'];
         include 'config.php';
-        $stmt = $conn->prepare('SELECT * FROM usertable where user_id="'.$user_id.'" ');
+        $stmt = $conn->prepare('SELECT * FROM users where user_id="'.$user_id.'" ');
         $stmt->execute();
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()):
             $fname= $row['fname'];
             $lname= $row['lname'];
-            echo 'Welcome',', ',$fname,' ',$lname, ' ! ';
+            echo 'Welcome',', ',$fname,' ',$lname, '! ';
         endif;
     }
 } else {
@@ -114,7 +111,7 @@ img {vertical-align: middle;
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: 900px; /* adjust this to the maximum width you want */
   position: relative;
   margin: auto;
 }
@@ -189,6 +186,7 @@ img {vertical-align: middle;
 }
 
 
+
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
@@ -202,28 +200,28 @@ img {vertical-align: middle;
 
 <!--carousel slideshow-->
 <div class="slideshow-container">
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="inspseries.jpg" style="width:100%">
-  <div class="text"></div>
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="inspseries.jpg" style="width:100%">
+    <div class="text"></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="inspseries.jpg" style="width:100%">
+    <div class="text"></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="inspseries.jpg" style="width:100%">
+    <div class="text"></div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
 </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="anghuling1.jpg" style="width:100%">
-  <div class="text"></div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="dnsr1.jpg" style="width:100%">
-  <div class="text"></div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
-
-</div>
 <br>
 
 <div style="text-align:center">
@@ -231,6 +229,7 @@ img {vertical-align: middle;
   <span class="dot" onclick="currentSlide(2)"></span> 
   <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
+
 <!--carousel-->
 <script src="js/carousel.js"></script>
 <style>
@@ -250,64 +249,75 @@ img {vertical-align: middle;
 			<div class="title">
 			<b>	<h2>All Available Products </h2></b>
 			</div>
+      <form method="post" action="" class="search-form" style="text-align: right;">
+    <input type="text" name="search" placeholder="Search Products">
+    <button type="submit" name="submit-search">Search</button>
+  </form>
    <div id="message"></div>	
      <div class="row mt-2 pb-3">
-   <?php
-  			include 'config.php';
-  			$stmt = $conn->prepare('SELECT * FROM product');
-  			$stmt->execute();
-  			$result = $stmt->get_result();
-  			while ($row = $result->fetch_assoc()):
-   ?>
-   <div class="card" style="width: 18rem;">
-  <img src="images/<?= $row['product_image']?>"class="card-img-top" height="300" width="300">
-  <div class="card-body">
-    <h2 class="card-title"><?= $row['product_name']?></h2>
-	<p class="card-title">₱&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></p>
-	<H5> <B>Product Details:</B></H5> 
-    <h5 class="card-text" style="font-weight:normal; font-style:italic;"><?= $row['product_desc'] ?></h5>
-	<H5> <B> STOCK: &nbsp; <?= $row['product_qty'] ?></B></H5>
-  </div>
-  <div class="card-body text-center">
-    <form action="" class="form-submit">
-      <div class="row-flex">
-        <?php
-          $qty = $row['product_qty'];
-          if($qty == '0'){
-            echo '<p style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;">- OUT OF STOCK -</p>';
-          }else{
-        ?> 
-        <input type="number" min="0" max="<?php echo $qty; ?>" class="form-control pqty" placeholder="---Enter Quantity--" style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;" value="1">												
-        <input type="hidden" class="pid" value="<?php echo $row['id'];?>">
-        <input type="hidden" class="pname" value="<?php echo $row['product_name'];?>">
-        <input type="hidden" class="porqty" value="<?php echo $row['product_qty'];?>">
-        <input type="hidden" class="pprice" value="<?php echo $row['product_price'];?>">
-        <input type="hidden" class="pimage" value="<?php echo $row['product_image'];?>">
-        <input type="hidden" class="pcode" value="<?php echo $row['product_code'];?>">
-        <input type="hidden" class="pdesc" value="<?php echo $row['product_desc'];?>">
-        <button style="font-size:16px; font-weight: bold; padding: 10px 60px 10px 60px; border-radius: 30px;" class="btn btn-info btn-block addItemBtn">
-          ADD TO CART
-        </button>
-        <?php 
-          }
-        ?>
+     <?php
+include 'config.php';
+
+if(isset($_POST['search'])) {
+    $search = $_POST['search'];
+    $stmt = $conn->prepare("SELECT * FROM product WHERE product_name LIKE '%".$search."%'");
+} else {
+    $stmt = $conn->prepare("SELECT * FROM product");
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+  <div class="row mt-2 pb-3">
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <div class="card" style="width: 18rem;">
+        <img src="images/<?= $row['product_image']?>" class="card-img-top" height="300" width="300">
+        <div class="card-body">
+          <h2 class="card-title"><?= $row['product_name']?></h2>
+          <p class="card-title">₱&nbsp;&nbsp;<?= number_format($row['product_price'],2) ?></p>
+          <h5> <b>Product Details:</b></h5> 
+          <h5 class="card-text" style="font-weight:normal; font-style:italic;"><?= $row['product_desc'] ?></h5>
+          <h5> <b> STOCK: &nbsp; <?= $row['product_qty'] ?></b></h5>
+        </div>
+        <div class="card-body text-center">
+          <form action="" class="form-submit">
+            <div class="row-flex">
+              <?php
+                $qty = $row['product_qty'];
+                if($qty == '0'){
+                  echo '<p style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;">- OUT OF STOCK -</p>';
+                }else{
+              ?> 
+              <input type="number" min="0" max="<?php echo $qty; ?>" class="form-control pqty" placeholder="---Enter Quantity--" style="font-size:14px; font-weight: bold; padding: 10px 20px 10px 20px; border-radius: 30px;" value="1">												
+              <input type="hidden" class="pid" value="<?php echo $row['id'];?>">
+              <input type="hidden" class="pname" value="<?php echo $row['product_name'];?>">
+              <input type="hidden" class="porqty" value="<?php echo $row['product_qty'];?>">
+              <input type="hidden" class="pprice" value="<?php echo $row['product_price'];?>">
+              <input type="hidden" class="pimage" value="<?php echo $row['product_image'];?>">
+              <input type="hidden" class="pcode" value="<?php echo $row['product_code'];?>">
+              <input type="hidden" class="pdesc" value="<?php echo $row['product_desc'];?>">
+              <button style="font-size:16px; font-weight: bold; padding: 10px 60px 10px 60px; border-radius: 30px;" class="btn btn-info btn-block addItemBtn">
+                ADD TO CART
+              </button>
+              <?php 
+                }
+              ?>
+            </div>
+          </form>
+        </div>
       </div>
-    </form>
+    <?php endwhile; ?>
   </div>
 </div>
-	   <?php endwhile; ?>
 </div>
-</div>
+
 	
-	
- 
+
   <!-- Displaying Products End -->
 	
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-  <script src="js/availpro.js"></script>
-
-			
+  <script src="js/availpro.js"></script>	
 <div class="footer">
 		<h3><b> Watty Bookstore </b></h3>	
 </div>			

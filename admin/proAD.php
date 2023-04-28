@@ -37,13 +37,13 @@ include('connect1.php');
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                     <!-- Nav Item - Alerts -->
+                   <!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i style="color:black;" class="fas fa-bell fa-fw"></i>
                               
-															<!-- Counter - Notification -->
+															 Counter - Notification
 																	<?php 
 																	include "config.php";
 																	
@@ -59,7 +59,7 @@ include('connect1.php');
 																?>
                               
 																
-                            <!-- Dropdown - Notification -->
+                             Dropdown - Notification 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -67,9 +67,8 @@ include('connect1.php');
                                 </h6>
 																
 																  <?php
-																		$connection = mysqli_connect("localhost","root","");
-																		$db = mysqli_select_db($connection, 'bookstore');
-
+																		 $connection = mysqli_connect("localhost","root","");
+                $db = mysqli_select_db($connection, 'bookstore');
 																		$query = "SELECT * FROM orders ";
 																		$query_run = mysqli_query($connection, $query);
 																		
@@ -90,8 +89,8 @@ include('connect1.php');
 													?>
 																
 																
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
                        
 
                         
@@ -104,7 +103,7 @@ include('connect1.php');
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-									<!-- ADD NEW USER MODAL-->
+									<!-- ADD NEW PRODUCT MODAL-->
                                     <div class="modal fade" id="studentaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -142,8 +141,6 @@ include('connect1.php');
     <input type="text" name="product_code" id="product_code" class="form-control" placeholder="Enter Product Code" readonly>
     <button type="button" onclick="generateCode()" class="btn btn-primary">Generate Code</button>
 </div>
-
-
                     <div class="form-group">
                         <label> Product Description </label>
                         <input type="text" name="product_desc" class="form-control" placeholder="Enter Description">
@@ -228,7 +225,7 @@ include('connect1.php');
                     <!-- Content Row -->
                     <div class="row">
 
-											 <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+   <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
     <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -422,28 +419,22 @@ include('connect1.php');
     </script>
 		
 		 <script>
-        $(document).ready(function () {
+       $(document).ready(function () {
+    $('.editbtn').on('click', function () {
+        $('#editmodal').modal('show');
+        var $tr = $(this).closest('tr');
+        var data = $tr.children("td").map(function () {
+            return $(this).text();
+        }).get();
+        console.log(data);
+        $('#update_id').val(data[1]);
+        $('#product_name').val(data[2]);
+        $('#product_price').val(data[3]);
+        $('#product_qty').val(data[4]);
+        $('#product_desc').val(data[6]);
+    });
+});
 
-            $('.editbtn').on('click', function () {
-
-                $('#editmodal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function () {
-                    return $(this).text();
-                }).get();
-
-                console.log(data);
-
-                $('#update_id').val(data[1]);
-                $('#product_name').val(data[2]);
-                $('#product_price').val(data[3]);
-                $('#product_qty').val(data[4]);
-
-								$('#product_desc').val(data[5]);
-            });
-        });
     </script>
 
 

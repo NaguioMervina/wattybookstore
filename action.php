@@ -156,10 +156,10 @@ $status="Pending";
 	  $data .= '<div class="text-center">
 	  <h2 class="title"><b>SUCCESSFULLY PLACED YOUR ORDER!</b></h2>
 	  <h1 class="display-4 mt-2 text-danger"><b>YOUR ORDER DETAILS:</b></h1>
-	  <h2 class="bg-danger text-light rounded p-2">' . $products . '</h2>
-	  <h2> ' . $name . '</h2>
-	  <h4>' . $email . '</h4>
-	  <h4>' . $phone . '</h4>
+	  <h2 class="bg-danger text-light rounded p-2"> <b>Product(qty):</b> ' . $products . '</h2>
+	  <h4> <b>Name:</b> ' . $name . '</h4>
+	  <h4> <b>Email:</b> ' . $email . '</h4>
+	  <h4> <b>Phone:</b> ' . $phone . '</h4>
 	  <h4><b>Order Total:</b></h4>
 	  <h4>Please pay ₱' . number_format($grand_total, 2) . ' upon delivery.</h4>
 	  <h2><b>Payment Method:</b> ' . $pmode . '</h2>

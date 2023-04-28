@@ -83,15 +83,13 @@ color: black !important;}
                     <ul class="navbar-nav ml-auto">
 										
 										<!-- Nav Item - Alerts -->
+                      <!-- Nav Item - Alerts 
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							
-                          <h2><i style="color:black;" class="fas fa-bell fa-fw"> </i></h2>
-								  
-								
+                                <i style="color:black;" class="fas fa-bell fa-fw"></i>
                               
-															<!-- Counter - Notification -->
+															 Counter - Notification
 																	<?php 
 																	include "config.php";
 																	
@@ -105,11 +103,9 @@ color: black !important;}
 																	}
 																	
 																?>
-																
-																
                               
 																
-                            <!-- Dropdown - Notification -->
+                             Dropdown - Notification 
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
@@ -117,9 +113,8 @@ color: black !important;}
                                 </h6>
 																
 																  <?php
-																		$connection = mysqli_connect("localhost","root","");
-																		$db = mysqli_select_db($connection, 'bookstore');
-
+																		 $connection = mysqli_connect("localhost","root","");
+                $db = mysqli_select_db($connection, 'bookstore');
 																		$query = "SELECT * FROM orders ";
 																		$query_run = mysqli_query($connection, $query);
 																		
@@ -140,8 +135,8 @@ color: black !important;}
 													?>
 																
 																
-                            </div>
-                        </li>
+                            </div> 
+                        </li> -->
 										
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -197,7 +192,7 @@ color: black !important;}
 			<?php 
 																	include "config.php";
 																	
-																	$sqlCount = "select count(id) as orderCount FROM usertable where id = id and usertype='user'";
+																	$sqlCount = "select count(id) as orderCount FROM users where id = id and usertype='user'";
 																	$resultCount = mysqli_query($conn, $sqlCount);
 																	$rowCount = mysqli_fetch_assoc($resultCount);
 																	if($rowCount['orderCount']>0){

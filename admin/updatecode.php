@@ -11,14 +11,14 @@ if(isset($_POST['updatedata'])) {
   $phone = $_POST['phone'];
   $address = $_POST['address'];
   $password = $_POST['password'];
-  $usertype = $_POST['usertype'];
 
-  $query = "UPDATE usertable SET fname='$fname', lname='$lname', username='$username', email='$email', phone='$phone', address='$address', password='$password', usertype='$usertype' WHERE id='$id'";
+  $query = "UPDATE users SET fname='$fname', lname='$lname', username='$username', email='$email', phone='$phone', address='$address', password='$password' WHERE id='$id'";
   $query_run = mysqli_query($connection, $query);
 
   if($query_run) {
     $message = "Data Updated!";
-    echo "<script type='text/javascript'>alert('$message');window.location='http://localhost/wattybookstore/admin/clists.php'</script>";
+    header("Location: http://localhost/wattybookstore/admin/clists.php");
+    exit();
   } else {
     echo '<script> alert("Data Not Updated"); </script>';
   }

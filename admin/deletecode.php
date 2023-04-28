@@ -6,7 +6,7 @@ if(isset($_POST['deletedata']))
 {
     $id = $_POST['delete_id'];
 
-    $query = "DELETE FROM usertable WHERE id='$id'";
+    $query = "DELETE FROM users WHERE id='$id'";
     $query_run = mysqli_query($connection, $query);
 
     if($query_run)

@@ -67,7 +67,7 @@ if(isset($_SESSION['user_id'])) {
 	<center>
 		<ul>
 			<li><a href="AvailPro.php">HOME</a></li>
-			<li><a href="order.php">ORDER</a></li>
+			<li><a href="order.php">ORDER STATUS</a></li>
 			<li><a href="cart.php">MY CART<?php
 				include "config.php";
 				$sqlCount = "SELECT COUNT(id) AS itemCount FROM cart WHERE id = id";
@@ -96,7 +96,7 @@ if(isset($_SESSION['user_id'])) {
     <div id="order">
       <h2 class="title"><b><center>PROCESS YOUR ORDER:</center></b></h2>
       <div>
-        <h2><b>Product(s):</b> <?= $allItems ?></h2>
+        <h2><b>Product(qty):</b><?= $allItems ?></h2>
         <h2><b>Delivery Charge:</b> 80</h2>
         <h2><b>Total Amount Payable:</b> <?= number_format($grand_total + 80) ?></h2>
       </div>
