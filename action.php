@@ -42,8 +42,7 @@
 		 $purchqty = $_POST['pqty'];
 
 	  $tqty = $porqty - $purchqty;
-		
-		$stmt = $conn->prepare('UPDATE product SET product_qty=? WHERE product_code=?');
+	$stmt = $conn->prepare('UPDATE product SET product_qty=? WHERE product_code=?');
 	  $stmt->bind_param('ss',$tqty,$pcode);
 	  $stmt->execute();		
 			echo '<script>alert("Item added to your cart!");window.location.reload();</script>';

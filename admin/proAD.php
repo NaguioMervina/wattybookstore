@@ -114,7 +114,6 @@ include('connect1.php');
                 </button>
             </div>
             <form action="insertcode1.php" method="post" enctype="multipart/form-data">
-
                 <div class="modal-body">
                     <div class="form-group">
                         <label> Product Image </label>

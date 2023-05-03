@@ -80,9 +80,7 @@ include('connect.php');
                             </div> 
                         </li> -->
 										
-                        <div class="topbar-divider d-none d-sm-block"></div>
-
-                        
+                        <div class="topbar-divider d-none d-sm-block"></div> 
                     </ul>
                 </nav>
                
@@ -266,9 +264,9 @@ $(document).ready(function(){
                         <h1 class="h3 mb-0 text-gray-800">List of Users</h1>      
                     </div>
                 <div class="container ">
-					<button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#studentaddmodal">
+				<!--<button type="button" class="btn btn-primary  " data-toggle="modal" data-target="#studentaddmodal">
                         Add User
-                    </button>
+                    </button> -->
                     
                 <div class="card-body">
 
@@ -288,8 +286,8 @@ $(document).ready(function(){
                                 <th scope="col">EMAIL</th>
                                 <th scope="col">USERNAME</th>
                                 <th scope="col"> PASSWORD</th>
-								<!--<th scope="col">USERTYPE</th>-->
-                                <th scope="col"> EDIT </th>
+								<th scope="col">USERTYPE</th>
+                              <!--  <th scope="col"> EDIT </th> -->
                                <!-- <th scope="col"> DELETE </th> -->
                             </tr>
                         </thead>
@@ -307,13 +305,13 @@ $(document).ready(function(){
                                 <td> <?php echo $row['email']; ?> </td>
                                 <td> <?php echo $row['username']; ?> </td>
                                 <td> <?php echo $row['password']; ?> </td>
-								<!--<td> <?php echo $row['usertype']; ?> </td> -->
+								<td> <?php echo $row['usertype']; ?> </td>
                                
                                
-                                <td>
+                             <!--   <td>
                                     <button type="button" class="btn btn-success editbtn"> <i class= "fa fa-edit"> </i> </button>
                                 </td>
-                              <!--  <td>
+                                <td>
                                     <button type="button" class="btn btn-danger deletebtn"> <i class= "fa fa-trash"> </i> </button>
                                 </td> -->
                             </tr>

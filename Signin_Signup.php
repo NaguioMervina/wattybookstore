@@ -17,7 +17,7 @@
             <form action="validation.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Email or Phone" name="username" id="" required>
+                    <input type="text" placeholder="Username" name="username" id="" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
