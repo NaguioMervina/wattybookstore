@@ -148,7 +148,6 @@ img {vertical-align: middle;
 
 
 <div class="slideshow-container">
-
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
   <img src="inspseries.jpg" style="width:100%">
